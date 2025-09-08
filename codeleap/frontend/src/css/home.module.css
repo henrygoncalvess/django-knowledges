@@ -1,0 +1,21 @@
+.body {
+  color: white;
+  background-color: hsla(210, 59%, 60%, 0.1);
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    grid-template: 10vh 1fr 15vh / 5vw 1fr 5vw;
+    grid-template: 10dvh 1fr 15dvh / 5vw 1fr 5vw;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .container {
+    grid-template: 10vh 1fr 15vh / 3vw 1fr 3vw;
+    grid-template: 10dvh 1fr 15dvh / 3vw 1fr 3vw;
+  }
+}
