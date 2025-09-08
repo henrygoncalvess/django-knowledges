@@ -1,0 +1,7 @@
+-i https://pypi.org/simple
+asgiref==3.9.1; python_version >= '3.9'
+django==5.2.6; python_version >= '3.10'
+djangorestframework==3.16.1; python_version >= '3.9'
+mysqlclient==2.2.7; python_version >= '3.8'
+sqlparse==0.5.3; python_version >= '3.8'
+typing-extensions==4.15.0; python_version >= '3.9'
