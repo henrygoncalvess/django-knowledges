@@ -1,0 +1,27 @@
+.section {
+  grid-area: 1 / 2 / -2 / span 1;
+
+  background-color: white;
+
+  width: 700px;
+  height: 90vh;
+  height: 90dvh;
+}
+
+.header {
+  background-color: #7695ec;
+  color: white;
+
+  font-weight: 600;
+  font-size: 2em;
+
+  padding: 15px 0 15px 25px;
+}
+
+.main {
+  padding: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,9 +5,3 @@
   min-height: 100dvh;
   font-weight: 500;
 }
-
-.section {
-  grid-area: 1 / 2 / -2 / span 1;
-  width: 550px;
-  margin: 25vh 0;
-}

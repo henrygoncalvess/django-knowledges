@@ -1,6 +1,7 @@
 import "@/css/global.css";
 import styles from "@/css/home.module.css";
 import Footer from "@/components/Footer/Footer";
+import Section from "@/components/Section/Section";
 import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 
@@ -9,19 +10,21 @@ function Home() {
     <>
       <div className={styles["body"]}>
         <div className={"container"}>
-          <section className={styles["section"]}>
-            <InputCard
-              title="Welcome to CodeLeap Network!"
-              border={true}
-              link={"dashboard"}
-            >
+          <Section>
+            <InputCard title="What's on your mind?">
               <InputUser
                 type={"text"}
-                title={"Please enter your username"}
-                placeholder={"Jonh Doe"}
+                title={"Title"}
+                placeholder={"Hello World"}
+              />
+              <InputUser
+                type={"text"}
+                title={"Content"}
+                placeholder={"Content Here"}
+                tag={"content"}
               />
             </InputCard>
-          </section>
+          </Section>
           <div className={styles["test"]}></div>
           <Footer />
         </div>
