@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+    </head>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+            margin: 1px;
+            padding: 2px;
+        }
+    </style>
+    <body>
+        <h1>wellcome {{ name }}! here are you tasks</h1>
+
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Situation</th>
+                <th>Created Date</th>
+                <th colspan="2">Actions</th>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>
+                        {% if task.complete %} Complete {% else %} Incomplete
+                        {%endif %}
+                    </td>
+                    <td>{{ task.created_at }}</td>
+                    <td>
+                        <a href="{% url 'tasks:update' task.id %}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'tasks:delete' task.id %}">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'tasks:add' %}">add task</a>
+    </body>
+</html>
