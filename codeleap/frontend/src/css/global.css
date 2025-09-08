@@ -1,0 +1,55 @@
+.global-body {
+  background: radial-gradient(
+      at 50% 50%,
+      hsl(197, 100%, 50%, 0.1) 10%,
+      transparent 60%
+    ),
+    radial-gradient(at 20% 80%, hsla(262, 100%, 50%, 0.1) 10%, transparent 60%),
+    radial-gradient(at 80% 10%, hsla(215, 100%, 50%, 0.12) 10%, transparent 60%),
+    radial-gradient(at 22% 20%, hsla(180, 100%, 50%, 0.11) 10%, transparent 60%),
+    radial-gradient(at 80% 85%, hsl(137, 100%, 50%, 0.1) 10%, transparent 60%);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.error-body {
+  background: radial-gradient(
+      at 50% 50%,
+      hsl(0, 100%, 50%, 0.4) 10%,
+      transparent 60%
+    ),
+    radial-gradient(at 75% 20%, hsla(13, 100%, 50%, 0.5) 10%, transparent 60%),
+    radial-gradient(at 84% 86%, hsla(0, 100%, 43%, 0.6) 10%, transparent 60%),
+    radial-gradient(at 13% 23%, hsla(343, 100%, 50%, 0.5) 10%, transparent 60%),
+    radial-gradient(at 13% 86%, hsla(340, 100%, 28%, 0.6) 15%, transparent 60%);
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  color: white;
+  text-shadow: 1px 2px 2px darkred;
+}
+
+.container {
+  display: grid;
+  grid-template: 10vh 1fr 15vh / 10vw 1fr 10vw;
+  grid-template: 10dvh 1fr 15dvh / 10vw 1fr 10vw;
+  place-items: center;
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    grid-template: 10vh 1fr 15vh / 5vw 1fr 5vw;
+    grid-template: 10dvh 1fr 15dvh / 5vw 1fr 5vw;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .container {
+    grid-template: 10vh 1fr 15vh / 3vw 1fr 3vw;
+    grid-template: 10dvh 1fr 15dvh / 3vw 1fr 3vw;
+  }
+}
+
+.grid-content {
+  grid-area: 2 / 2 / -2 / -2;
+}
