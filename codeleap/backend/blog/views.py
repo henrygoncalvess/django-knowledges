@@ -9,7 +9,7 @@ from .models import PostModel
 def posts_list_handler(request):
     match request.method:
         case 'GET':
-            posts = PostModel.objects.all()
+            posts = PostModel.objects.all().order_by('-created_datetime')
             serializer = PostSerializer(posts, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -39,6 +39,6 @@ def posts_update_handler(request, id):
             post = get_object_or_404(PostModel, id=id)
             post.delete()
 
-            return Response()
+            return Response(status=status.HTTP_204_NO_CONTENT)
         case _:
             return Response({"detail": "Método não permitido"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
