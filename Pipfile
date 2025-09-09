@@ -8,6 +8,7 @@ mysqlclient = "*"
 django = "*"
 djangorestframework = "*"
 gunicorn = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

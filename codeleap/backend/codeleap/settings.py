@@ -13,6 +13,19 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+DJANGO_ENV = os.getenv("DJANGO_ENV", "development")
+
+
+if DJANGO_ENV == "development":
+    CORS_ALLOW_ALL_ORIGINS = True
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        os.getenv("FRONT_SITE", "http://localhost:3000"),
+    ]
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(',')
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,8 +39,6 @@ SECRET_KEY = 'django-insecure-acx#+j_l^bk0+_5c=8f70z9#l3f#db)4erz$0r#tq%60i4i^%2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,12 +49,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

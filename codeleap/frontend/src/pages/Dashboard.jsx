@@ -1,12 +1,23 @@
 import "@/css/global.css";
-import styles from "@/css/home.module.css";
+import styles from "@/css/dashboard.module.css";
 import Footer from "@/components/Footer/Footer";
 import Section from "@/components/Section/Section";
 import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 import PostCard from "@/components/PostCard/PostCard";
+import useSWR from "swr";
 
-function Home() {
+async function fetchAPI(key) {
+  const response = await fetch(key);
+  const responseBody = await response.json();
+  return responseBody;
+}
+
+function Dashboard() {
+  const { data } = useSWR(`http://localhost:8000/api/v1/careers/`, fetchAPI, {
+    revalidateOnFocus: false,
+  });
+
   return (
     <>
       <div className={styles["body"]}>
@@ -25,22 +36,21 @@ function Home() {
                 tag={"content"}
               />
             </InputCard>
-            <PostCard
-              title={"My First Post at Codeleap Network"}
-              username={"Victor"}
-              postedAt={"25 minutes ago"}
-              content={
-                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora magni accusamus optio eius mollitia sunt, hic voluptas delectus quo esse nostrum eum inventore aspernatur. Optio suscipit dolorem iusto! Omnis, expedita."
-              }
-            />
-            <PostCard
-              title={"My First Post at Codeleap Network"}
-              username={"Victor"}
-              postedAt={"25 minutes ago"}
-              content={
-                "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora magni accusamus optio eius mollitia sunt, hic voluptas delectus quo esse nostrum eum inventore aspernatur. Optio suscipit dolorem iusto! Omnis, expedita."
-              }
-            />
+            {data && data?.length > 0 ? (
+              data.map((post) => {
+                return (
+                  <PostCard
+                    key={post.id}
+                    title={post.title}
+                    username={post.username}
+                    postedAt={post.created_datetime}
+                    content={post.content}
+                  />
+                );
+              })
+            ) : (
+              <p>loading...</p>
+            )}
           </Section>
           <Footer />
         </div>
@@ -49,4 +59,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;
