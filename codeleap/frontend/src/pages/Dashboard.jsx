@@ -14,9 +14,13 @@ async function fetchAPI(key) {
 }
 
 function Dashboard() {
-  const { data } = useSWR(`http://localhost:8000/api/v1/careers/`, fetchAPI, {
-    revalidateOnFocus: false,
-  });
+  const { data } = useSWR(
+    `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
+    fetchAPI,
+    {
+      revalidateOnFocus: false,
+    }
+  );
 
   return (
     <>

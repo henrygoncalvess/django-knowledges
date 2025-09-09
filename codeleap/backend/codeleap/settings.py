@@ -18,13 +18,12 @@ DJANGO_ENV = os.getenv("DJANGO_ENV", "development")
 
 if DJANGO_ENV == "development":
     CORS_ALLOW_ALL_ORIGINS = True
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
     CORS_ALLOWED_ORIGINS = [
         os.getenv("FRONT_SITE", "http://localhost:3000"),
     ]
-    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(',')
 
+ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost").split(",") if h.strip()]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
