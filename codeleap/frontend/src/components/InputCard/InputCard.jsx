@@ -14,7 +14,7 @@ function InputCard({ title, children, border, link }) {
         <div className={styles["card"]}>
           <h1 className={styles["title"]}>{title}</h1>
           <div className={styles["inputContent"]}>{children}</div>
-          <Button link={link}>ENTER</Button>
+          <Button link={link}>Create</Button>
         </div>
       )}
     </>
