@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template: max-content 1fr 45px / 1fr 150px;
+  grid-template: max-content 1fr 40px / 1fr 150px;
 
   background-color: white;
 
