@@ -1,0 +1,54 @@
+import styles from "@/components/Alert/alert.module.css";
+import InputCard from "@/components/InputCard/InputCard";
+import Button from "@/components/Button/Button";
+
+function Alert({ open, title, onCancel, onDelete, inputs, editAlert }) {
+  if (!open) return null;
+
+  const cancelButtonStyles = {
+    color: "black",
+    border: "1px solid #aaa",
+    backgroundColor: "white",
+  };
+
+  const deleteButtonStyles = {
+    backgroundColor: "#ff5151",
+  };
+
+  const saveButtonStyles = {
+    backgroundColor: "#47b960",
+  };
+
+  return (
+    <div className={styles["overlay"]}>
+      <InputCard
+        width={"550px"}
+        title={title}
+        button={
+          <>
+            <Button
+              gridArea={"-2 / 2 / span 1 / span 1"}
+              additionalStyles={cancelButtonStyles}
+              handleClick={onCancel}
+            >
+              Cancel
+            </Button>
+            <Button
+              gridArea={"-2 / 3 / span 1 / span 1"}
+              additionalStyles={
+                editAlert ? saveButtonStyles : deleteButtonStyles
+              }
+              handleClick={onDelete}
+            >
+              {editAlert ? "Save" : "Delete"}
+            </Button>
+          </>
+        }
+      >
+        {inputs}
+      </InputCard>
+    </div>
+  );
+}
+
+export default Alert;

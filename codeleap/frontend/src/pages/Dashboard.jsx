@@ -5,9 +5,10 @@ import Section from "@/components/Section/Section";
 import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 import PostCard from "@/components/PostCard/PostCard";
+import Button from "@/components/Button/Button";
 import useSWR from "swr";
 
-async function fetchAPI(key) {
+async function fetchGetAPI(key) {
   const response = await fetch(key);
   const responseBody = await response.json();
   return responseBody;
@@ -16,7 +17,7 @@ async function fetchAPI(key) {
 function Dashboard() {
   const { data } = useSWR(
     `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
-    fetchAPI,
+    fetchGetAPI,
     {
       revalidateOnFocus: false,
     }
@@ -27,7 +28,13 @@ function Dashboard() {
       <div className={styles["body"]}>
         <div className={"container"}>
           <Section>
-            <InputCard title="What's on your mind?">
+            <InputCard
+              width={"100%"}
+              title={"What's on your mind?"}
+              button={
+                <Button gridArea={"-2 / 3 / span 1 / span 1"}>Create</Button>
+              }
+            >
               <InputUser
                 type={"text"}
                 title={"Title"}

@@ -1,11 +1,23 @@
 import styles from "@/components/Button/button.module.css";
 import { Link } from "react-router-dom";
 
-function Button({ children, link }) {
+function Button({ children, gridArea, link, additionalStyles, handleClick }) {
+  const customStyles = {
+    gridArea,
+    ...additionalStyles,
+  };
+
   return (
-    <Link className={styles["routerLink"]} to={link}>
-      {children}
-    </Link>
+    <>
+      <Link
+        onClick={handleClick}
+        style={customStyles}
+        className={styles["button"]}
+        to={link}
+      >
+        {children}
+      </Link>
+    </>
   );
 }
 

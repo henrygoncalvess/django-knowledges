@@ -1,5 +1,4 @@
-.routerLink {
-  grid-area: -2 / 2 / span 1 / span 1;
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,9 +6,8 @@
   font-size: 1.3em;
   font-weight: bold;
   text-decoration: none;
-  color: white;
 
   border-radius: 10px;
-
+  color: white;
   background-color: #7695ec;
 }

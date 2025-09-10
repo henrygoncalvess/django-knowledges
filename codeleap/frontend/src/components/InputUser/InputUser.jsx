@@ -12,6 +12,7 @@ function InputUser({ type, title, placeholder, tag }) {
           style={{
             height: "70px",
             padding: "3px 0 45px 15px",
+            marginBottom: "8px",
           }}
         />
       ) : (

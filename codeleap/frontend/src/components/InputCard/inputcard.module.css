@@ -1,10 +1,10 @@
 .card {
   display: grid;
-  grid-template: max-content 1fr 40px / 1fr 150px;
+  grid-template: max-content 1fr 40px / 1fr 150px 150px;
+  gap: 15px;
 
   background-color: white;
 
-  width: 100%;
   height: max-content;
 
   border: 1px solid #aaaaaa;
@@ -16,7 +16,7 @@
 .title {
   color: black;
   font-size: 1.7em;
-  margin-bottom: 15px;
+  width: 210%;
 }
 
 .inputContent {
