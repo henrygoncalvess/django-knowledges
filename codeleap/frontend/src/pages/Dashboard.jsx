@@ -52,6 +52,7 @@ function Dashboard() {
                 return (
                   <PostCard
                     key={post.id}
+                    userId={post.id}
                     title={post.title}
                     username={post.username}
                     postedAt={post.created_datetime}
