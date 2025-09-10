@@ -6,6 +6,11 @@ import InputUser from "@/components/InputUser/InputUser";
 import Button from "@/components/Button/Button";
 
 function Home() {
+  function saveUser() {
+    const username = document.getElementsByTagName("input");
+    localStorage.setItem("username", username["0"].value);
+  }
+
   return (
     <>
       <div className={styles["body"]}>
@@ -18,6 +23,7 @@ function Home() {
                 <Button
                   link={"dashboard"}
                   gridArea={"-2 / 3 / span 1 / span 1"}
+                  handleClick={saveUser}
                 >
                   ENTER
                 </Button>

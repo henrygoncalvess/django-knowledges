@@ -2,7 +2,7 @@ import styles from "@/components/Alert/alert.module.css";
 import InputCard from "@/components/InputCard/InputCard";
 import Button from "@/components/Button/Button";
 
-function Alert({ open, title, onCancel, onDelete, inputs, editAlert }) {
+function Alert({ open, title, onCancel, onDelete, inputs, editAlert, onSave }) {
   if (!open) return null;
 
   const cancelButtonStyles = {
@@ -38,7 +38,7 @@ function Alert({ open, title, onCancel, onDelete, inputs, editAlert }) {
               additionalStyles={
                 editAlert ? saveButtonStyles : deleteButtonStyles
               }
-              handleClick={onDelete}
+              handleClick={onDelete || onSave}
             >
               {editAlert ? "Save" : "Delete"}
             </Button>
