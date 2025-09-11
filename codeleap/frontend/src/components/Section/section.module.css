@@ -28,3 +28,40 @@
 
   flex-flow: row wrap;
 }
+
+@media screen and (max-width: 770px) {
+  .section {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .section {
+    grid-area: 1 / 1 / -2 / -1;
+    width: 100%;
+  }
+
+  .main {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    font-size: 1.3em;
+
+    padding: 15px 0 15px 25px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .header {
+    font-size: 1.2em;
+
+    padding: 10px 0 10px 20px;
+  }
+
+  .main {
+    padding: 3px;
+  }
+}

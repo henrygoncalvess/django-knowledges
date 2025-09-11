@@ -65,3 +65,78 @@
 .username {
   font-weight: bold;
 }
+
+@media screen and (max-width: 610px) {
+  .title {
+    font-size: 1.5em;
+  }
+
+  .trashIcon,
+  .editIcon {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .header {
+    padding: 10px 0 10px 25px;
+    grid-template-columns: 1fr 45px 45px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+
+  .trashIcon,
+  .editIcon {
+    font-size: 22px;
+    font-weight: 300;
+  }
+
+  .header {
+    padding: 5px 0 5px 18px;
+    grid-template-columns: 1fr 38px 38px;
+  }
+
+  .username {
+    font-weight: 600;
+  }
+
+  .postedAt {
+    font-weight: 400;
+  }
+
+  .content {
+    font-weight: 400;
+  }
+
+  .section {
+    padding: 12px;
+  }
+
+  .postCard {
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .section {
+    border: none;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  .trashIcon,
+  .editIcon {
+    font-size: 20px;
+  }
+
+  .header {
+    padding: 5px 0 5px 12px;
+    grid-template-columns: 1fr 30px 30px;
+  }
+}

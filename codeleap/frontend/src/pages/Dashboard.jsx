@@ -83,7 +83,10 @@ function Dashboard() {
                 );
               })
             ) : (
-              <p>loading...</p>
+              <div className={styles["loadContainer"]}>
+                <div className={styles["circle"]}></div>
+                <h3 className={styles["loading"]}>Loading Posts.....</h3>
+              </div>
             )}
           </Section>
           <Footer />

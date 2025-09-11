@@ -9,19 +9,23 @@ function Alert({ open, title, onCancel, onDelete, inputs, editAlert, onSave }) {
     color: "black",
     border: "1px solid #aaa",
     backgroundColor: "white",
+    fontSize: window.innerWidth <= 540 ? "1em" : "1.3em",
   };
 
   const deleteButtonStyles = {
     backgroundColor: "#ff5151",
+    fontSize: window.innerWidth <= 540 ? "1em" : "1.3em",
   };
 
   const saveButtonStyles = {
     backgroundColor: "#47b960",
+    fontSize: window.innerWidth <= 540 ? "1em" : "1.3em",
   };
 
   return (
     <div className={styles["overlay"]}>
       <InputCard
+        alertClass={true}
         width={"550px"}
         title={title}
         button={

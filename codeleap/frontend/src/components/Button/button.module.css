@@ -11,3 +11,9 @@
   color: white;
   background-color: #7695ec;
 }
+
+@media screen and (max-width: 450px) {
+  .button {
+    font-size: 1.1em;
+  }
+}

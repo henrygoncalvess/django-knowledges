@@ -14,3 +14,24 @@
 
   padding: 3px 0 3px 15px;
 }
+
+@media screen and (max-width: 450px) {
+  .inputMessage {
+    font-weight: 400;
+  }
+
+  .inputUser {
+    font-weight: 300;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .inputMessage {
+    font-weight: 400;
+  }
+
+  .inputUser {
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+}
