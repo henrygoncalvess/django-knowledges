@@ -4,11 +4,14 @@ import Footer from "@/components/Footer/Footer";
 import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 import Button from "@/components/Button/Button";
+import Dashboard from "@/pages/Dashboard";
 
 function Home() {
   function saveUser() {
     const username = document.getElementsByTagName("input");
     localStorage.setItem("username", username["0"].value);
+    localStorage.setItem("userIn", true);
+    window.location.reload();
   }
 
   return (
@@ -21,7 +24,6 @@ function Home() {
               title={"Welcome to CodeLeap Network!"}
               button={
                 <Button
-                  link={"dashboard"}
                   gridArea={"-2 / 3 / span 1 / span 1"}
                   handleClick={saveUser}
                 >
@@ -45,4 +47,8 @@ function Home() {
   );
 }
 
-export default Home;
+function PagesHandler() {
+  return <>{localStorage.getItem("userIn") ? <Dashboard /> : <Home />}</>;
+}
+
+export default PagesHandler;

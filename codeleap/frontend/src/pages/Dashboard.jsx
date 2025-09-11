@@ -32,7 +32,29 @@ function Dashboard() {
               width={"100%"}
               title={"What's on your mind?"}
               button={
-                <Button gridArea={"-2 / 3 / span 1 / span 1"}>Create</Button>
+                <Button
+                  gridArea={"-2 / 3 / span 1 / span 1"}
+                  handleClick={async (event) => {
+                    event.preventDefault();
+                    await fetch(
+                      `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        method: "POST",
+                        body: JSON.stringify({
+                          username: localStorage.getItem("username"),
+                          title: document.querySelectorAll("input")[0].value,
+                          content: document.querySelectorAll("input")[1].value,
+                        }),
+                      }
+                    );
+                    window.location.reload();
+                  }}
+                >
+                  Create
+                </Button>
               }
             >
               <InputUser
