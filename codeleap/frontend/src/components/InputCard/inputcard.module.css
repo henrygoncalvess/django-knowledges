@@ -1,4 +1,5 @@
-.card {
+.card,
+.alertCard {
   display: grid;
   grid-template: max-content 1fr 40px / 1fr 150px 150px;
   gap: 15px;
@@ -13,12 +14,77 @@
   padding: 22px;
 }
 
-.title {
+.title,
+.alertTitle {
+  grid-area: 1 / 1 / span 1 / -1;
+
   color: black;
   font-size: 1.7em;
-  width: 210%;
 }
 
 .inputContent {
   grid-area: 2 / 1 / span 1 / -1;
+}
+
+@media screen and (max-width: 610px) {
+  .card {
+    padding: 15px;
+    gap: 10px;
+    grid-area: 1 / 1 / -2 / -1;
+  }
+
+  .alertCard {
+    gap: 10px;
+    grid-template: max-content 1fr 40px / 1fr 135px 135px;
+
+    border-radius: 0;
+
+    padding: 15px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.4em;
+  }
+
+  .alertTitle {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .alertCard {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    font-size: 1.2em;
+  }
+
+  .card {
+    grid-template: max-content 1fr 40px / 1fr 110px 110px;
+  }
+
+  .alertCard {
+    padding: 6px;
+    grid-template: max-content 1fr 40px / 1fr 110px 110px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .title {
+    font-size: 1em;
+  }
+
+  .card {
+    padding: 0px;
+    border: none;
+  }
+
+  .alertCard {
+    grid-template: max-content 1fr 40px / 1fr 90px 90px;
+  }
 }

@@ -11,3 +11,10 @@
   width: 550px;
   margin: 25vh 0;
 }
+
+@media screen and (max-width: 610px) {
+  .section {
+    grid-area: 1 / 1 / -2 / -1;
+    width: 90%;
+  }
+}
