@@ -2,12 +2,13 @@ import styles from "@/components/PostCard/postcard.module.css";
 import Alert from "@/components/Alert/Alert";
 import InputUser from "@/components/InputUser/InputUser";
 import calculateTimeAgo from "@/utils/calculateTime.js";
-import userPostStyles from "@/components/InputUser/inputuser.module.css";
 import { useState } from "react";
 
 function PostCard({ userId, title, username, postedAt, content }) {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [titleValue, setTitleValue] = useState(title);
+  const [contentValue, setContentValue] = useState(content);
 
   const localUsername = localStorage.getItem("username");
 
@@ -25,22 +26,27 @@ function PostCard({ userId, title, username, postedAt, content }) {
               type={"text"}
               title={"Title"}
               placeholder={"Hello CodeLeap Network!"}
+              value={titleValue}
+              handleChange={(event) => {
+                setTitleValue(event.target.value);
+              }}
             />
             <InputUser
               type={"text"}
               title={"Content"}
               placeholder={"Content Here"}
               tag={"content"}
+              value={contentValue}
+              handleChange={(event) => setContentValue(event.target.value)}
             />
           </>
         }
         onCancel={() => setOpen1(false)}
         onSave={async () => {
-          const newUserData = document.querySelectorAll(
-            `input.${userPostStyles["inputUser"]}`
-          );
-          console.log(newUserData[2].value);
-          console.log(newUserData[3].value);
+          const newInputData = document.querySelectorAll("input");
+          const newTextData = document.querySelectorAll("textarea");
+          console.log(newInputData[1].value);
+          console.log(newTextData[1].value);
 
           await fetch(
             `${import.meta.env.VITE_BACK_END}/api/v1/careers/${userId}/`,
@@ -50,8 +56,8 @@ function PostCard({ userId, title, username, postedAt, content }) {
               },
               method: "PATCH",
               body: JSON.stringify({
-                title: newUserData[2].value,
-                content: newUserData[3].value,
+                title: newInputData[1].value,
+                content: newTextData[1].value,
               }),
             }
           );
