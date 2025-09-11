@@ -20,6 +20,7 @@ function Dashboard() {
     fetchGetAPI,
     {
       revalidateOnFocus: false,
+      refreshInterval: 60 * 3 * 1000,
     }
   );
 
@@ -36,6 +37,7 @@ function Dashboard() {
                   gridArea={"-2 / 3 / span 1 / span 1"}
                   handleClick={async (event) => {
                     event.preventDefault();
+
                     await fetch(
                       `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
                       {
@@ -45,8 +47,8 @@ function Dashboard() {
                         method: "POST",
                         body: JSON.stringify({
                           username: localStorage.getItem("username"),
-                          title: document.querySelectorAll("input")[0].value,
-                          content: document.querySelectorAll("input")[1].value,
+                          title: document.querySelector("input").value,
+                          content: document.querySelector("textarea").value,
                         }),
                       }
                     );
