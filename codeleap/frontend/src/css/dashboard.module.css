@@ -11,3 +11,36 @@
   width: 550px;
   margin: 25vh 0;
 }
+
+.loadContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+
+  width: 100%;
+  height: max-content;
+}
+
+.circle {
+  margin: 20px 0 10px 0;
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid #7695ec;
+  border-right: 2px solid #7695ec;
+  border-left: 2px solid white;
+  border-radius: 50%;
+  animation: rotate 600ms linear infinite reverse;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  text-align: center;
+  flex: 100%;
+  color: black;
+}
