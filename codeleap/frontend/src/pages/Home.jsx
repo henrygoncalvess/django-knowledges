@@ -5,6 +5,13 @@ import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 import Button from "@/components/Button/Button";
 import Dashboard from "@/pages/Dashboard";
+import useSWR from "swr";
+
+async function fetchGetAPI(key) {
+  const response = await fetch(key);
+  const responseBody = await response.json();
+  return responseBody;
+}
 
 function Home() {
   function saveUser() {
@@ -48,7 +55,24 @@ function Home() {
 }
 
 function PagesHandler() {
-  return <>{localStorage.getItem("userIn") ? <Dashboard /> : <Home />}</>;
+  const { data } = useSWR(
+    `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
+    fetchGetAPI,
+    {
+      revalidateOnFocus: false,
+      refreshInterval: 60 * 3 * 1000,
+    }
+  );
+
+  return (
+    <>
+      {localStorage.getItem("userIn") ? (
+        <Dashboard arrayData={data} />
+      ) : (
+        <Home />
+      )}
+    </>
+  );
 }
 
 export default PagesHandler;
