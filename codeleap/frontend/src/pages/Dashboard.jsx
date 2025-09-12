@@ -6,24 +6,8 @@ import InputCard from "@/components/InputCard/InputCard";
 import InputUser from "@/components/InputUser/InputUser";
 import PostCard from "@/components/PostCard/PostCard";
 import Button from "@/components/Button/Button";
-import useSWR from "swr";
 
-async function fetchGetAPI(key) {
-  const response = await fetch(key);
-  const responseBody = await response.json();
-  return responseBody;
-}
-
-function Dashboard() {
-  const { data } = useSWR(
-    `${import.meta.env.VITE_BACK_END}/api/v1/careers/`,
-    fetchGetAPI,
-    {
-      revalidateOnFocus: false,
-      refreshInterval: 60 * 3 * 1000,
-    }
-  );
-
+function Dashboard({ arrayData }) {
   return (
     <>
       <div className={styles["body"]}>
@@ -71,8 +55,8 @@ function Dashboard() {
                 tag={"content"}
               />
             </InputCard>
-            {data && data?.length > 0 ? (
-              data.map((post) => {
+            {arrayData && arrayData?.length > 0 ? (
+              arrayData.map((post) => {
                 return (
                   <PostCard
                     key={post.id}
