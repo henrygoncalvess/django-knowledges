@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 # 🚀 CodeLeap Network
 
 ## 📋 Conteúdo
@@ -60,6 +62,8 @@ O sistema desenvolvido é uma plataforma que funciona como uma Rede Social, onde
 </div>
 </details>
 
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+
 <br>
 
 <a name="techs"></a>
@@ -78,6 +82,17 @@ O sistema desenvolvido é uma plataforma que funciona como uma Rede Social, onde
 Acesse o site [Codeleap-Network](https://codeleap-network-alpha.vercel.app/careers)
 
 <br>
+
+## 📝 Documentação da API
+
+- `GET /api/v1/careers` - Busca todos os posts
+- `POST /api/v1/careers` - Cria um post
+- `PATCH /api/v1/careers/{id}` - Atualiza um post
+- `DELETE /api/v1/careers/{id}` - Exclui um post
+
+<br>
+
+<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 <a name="license"></a>
 ## 📄 Licença
